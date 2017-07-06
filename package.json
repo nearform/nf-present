@@ -1,0 +1,15 @@
+{
+  "name": "remark-styles",
+  "version": "0.0.1",
+  "description": "CSS styles for nearForm training",
+  "main": "index.js",
+  "scripts": {
+    "install": "node_modules/stylus/bin/stylus src/main.styl -o style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fionn Kelleher",
+  "license": "nearForm Training License",
+  "dependencies": {
+    "stylus": "^0.54.5"
+  }
+}
