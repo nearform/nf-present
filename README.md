@@ -4,6 +4,6 @@ This module contains the stylesheets for remark training decks. Styles are writt
 
 ## Installation
 
-You shouldn't have to install this module manually, use https://github.com/nearform/training-boilerplate for new decks.
+You shouldn't have to install this module manually, use https://github.com/nearform/remark-boilerplate for new decks.
 
 If you're migrating a Deck presentation, use `npm install @nearform/remark-styles` to install and compile the CSS, and see `index.html` in the above repository for guidance.
