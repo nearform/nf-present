@@ -1,6 +1,6 @@
 {
   "name": "remark-styles",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "CSS styles for nearForm training",
   "main": "index.js",
   "scripts": {
