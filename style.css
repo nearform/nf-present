@@ -28,7 +28,8 @@ h1 {
   padding-bottom: 5px;
   text-align: center;
 }
-ul {
+ul,
+ol {
   font-size: 36px;
 }
 a,
@@ -53,6 +54,7 @@ a:link {
   text-align: center;
 }
 .image ol,
+.image ul,
 .image pre,
 .image code {
   text-align: left;
@@ -88,8 +90,11 @@ a:link {
   padding: 5px 30px 5px 30px;
 }
 .section-title {
-  font-size: 96px;
+  font-size: 80px;
 }
 figcaption {
   font-size: 28px;
+}
+.remark-inline-code {
+  color: #808080;
 }

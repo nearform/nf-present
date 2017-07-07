@@ -7,8 +7,8 @@
     "install": "node_modules/stylus/bin/stylus src/main.styl -o style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Fionn Kelleher",
-  "license": "nearForm Training License",
+  "author": "Fionn Kelleher <fionnkell@gmail.com>",
+  "license": "UNLICENSED",
   "dependencies": {
     "stylus": "^0.54.5"
   }
