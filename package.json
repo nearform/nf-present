@@ -11,5 +11,11 @@
   "license": "UNLICENSED",
   "dependencies": {
     "stylus": "^0.54.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nearform/remark-styles.git"
+  },
+  "homepage": "https://github.com/nearform/remark-styles",
+  "bugs": "https://github.com/nearform/remark-styles/issues"
 }
