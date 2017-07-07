@@ -1,5 +1,5 @@
 {
-  "name": "remark-styles",
+  "name": "@nearform/remark-styles",
   "version": "1.0.0",
   "description": "CSS styles for nearForm training",
   "main": "index.js",
