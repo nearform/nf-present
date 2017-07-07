@@ -4,7 +4,7 @@
   "description": "CSS styles for nearForm training",
   "main": "index.js",
   "scripts": {
-    "install": "node_modules/stylus/bin/stylus src/main.styl -o style.css",
+    "install": "stylus src/main.styl -o style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Fionn Kelleher <fionnkell@gmail.com>",
