@@ -1,21 +1,31 @@
 {
-  "name": "@nearform/remark-styles",
+  "name": "@nearform/remark-bootstrap",
   "version": "1.0.0",
-  "description": "CSS styles for nearForm training",
+  "description": "Bootstrap for remark decks",
   "main": "index.js",
   "scripts": {
-    "install": "stylus src/main.styl -o style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "nf-present": "present"
   },
   "author": "Fionn Kelleher <fionnkell@gmail.com>",
   "license": "UNLICENSED",
-  "dependencies": {
-    "stylus": "^0.54.5"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nearform/remark-styles.git"
+    "url": "https://github.com/nearform/remark-bootstrap.git"
   },
-  "homepage": "https://github.com/nearform/remark-styles",
-  "bugs": "https://github.com/nearform/remark-styles/issues"
+  "homepage": "https://github.com/nearform/remark-bootstrap",
+  "bugs": "https://github.com/nearform/remark-bootstrap/issues",
+  "dependencies": {
+    "browserify": "^14.4.0",
+    "create-html": "^3.1.0",
+    "from2-string": "^1.1.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-stylus": "^2.6.0",
+    "remark": "git+https://github.com/gnab/remark.git",
+    "temp": "^0.8.3",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }
