@@ -2,24 +2,25 @@
 
 const temp = require('temp')
 const gulp = require('gulp')
-const stylus = require('gulp-stylus')
 const connect = require('gulp-connect')
 const createHTML = require('create-html')
 const fromString = require('from2-string')
 const source = require('vinyl-source-stream')
 const browserify = require('browserify')
 const fs = require('fs')
+const path = require('path')
+const resolve = require('resolve')
 
 temp.track()
 
-let cwd = process.cwd()
-let out = temp.mkdirSync()
+const cwd = process.cwd()
+const package = require(`${cwd}/package.json`)
+const skinDir = path.dirname(resolve.sync(package.skin, {basedir: cwd}))
+const out = temp.mkdirSync()
 
 gulp.task('css', () => {
-  return gulp.src(`${__dirname}/styles/**.styl`)
-    .pipe(stylus())
+  return gulp.src(`${skinDir}/styles/**.css`)
     .pipe(gulp.dest(`${out}/css`))
-    .pipe(connect.reload())
 })
 
 gulp.task('html', () => {
@@ -47,7 +48,7 @@ gulp.task('markdown', () => {
 })
 
 gulp.task('images', () => {
-  return gulp.src(`${__dirname}/images/**`)
+  return gulp.src(`${skinDir}/images/**`)
     .pipe(gulp.dest(`${out}/images`))
 })
 
