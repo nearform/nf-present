@@ -24,7 +24,7 @@ gulp.task('css', () => {
 })
 
 gulp.task('html', () => {
-  let stylesheets = ['main.css', 'deck.css']
+  let stylesheets = ['style.css', 'deck.css']
     .map(s => `<link rel="stylesheet" href=css/${s}>`)
     .join('\n')
 
