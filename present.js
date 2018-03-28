@@ -10,6 +10,7 @@ const browserify = require('browserify')
 const fs = require('fs')
 const path = require('path')
 const resolve = require('resolve')
+const opn = require('opn')
 
 temp.track()
 
@@ -112,7 +113,12 @@ gulp.task('watch', () => {
   gulp.watch([`${cwd}/images`], ['deckImages'])
 })
 
+gulp.task('open', ['serve'], function (done) {
+  opn('http://localhost:8080', done)
+})
+
 gulp.task('default', [
+  'open',
   'serve',
   'html',
   'css',
