@@ -15,7 +15,7 @@ temp.track()
 
 const cwd = process.cwd()
 const package = require(`${cwd}/package.json`)
-const skinDir = path.dirname(resolve.sync(package.skin, {basedir: cwd}))
+const skinDir = path.dirname(resolveSkin(package, cwd))
 const out = temp.mkdirSync()
 
 gulp.task('css', () => {
@@ -125,3 +125,11 @@ gulp.task('default', [
 ])
 
 gulp.start.apply(gulp, ['default'])
+
+function resolveSkin (package, cwd) {
+  try {
+    return resolve.sync(package.skin, {basedir: cwd})
+  } catch (err) {
+    throw new Error('Could not resolve "skin" in package.json. Is it missing?')
+  }
+}
