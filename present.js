@@ -68,7 +68,7 @@ gulp.task('deckCSS', () => {
 gulp.task('js', () => {
   // remark isn't resolvable by require(), so this is a bit hacky
 
-  let remarkPath = resolve.sync('remark', {
+  let remarkPath = resolve.sync('@nearform/remark', {
     packageFilter: (pkg, pkgfile) => {
       pkg.main = 'src/remark.js'
       return pkg
