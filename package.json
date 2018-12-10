@@ -1,6 +1,6 @@
 {
   "name": "@nearform/remark-bootstrap",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Bootstrap for remark decks",
   "main": "index.js",
   "scripts": {
