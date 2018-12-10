@@ -100,7 +100,7 @@ gulp.task('js', () => {
     .pipe(gulp.dest(out))
 })
 
-gulp.task('serve', () => {
+gulp.task('start-server', () => {
   connect.server({
     root: out,
     livereload: true
@@ -117,9 +117,8 @@ gulp.task('open', ['serve'], function (done) {
   opn('http://localhost:8080', done)
 })
 
-gulp.task('default', [
-  'open',
-  'serve',
+gulp.task('serve', [
+  'start-server',
   'html',
   'css',
   'js',
@@ -127,10 +126,15 @@ gulp.task('default', [
   'deckImages',
   'markdown',
   'deckCSS',
+])
+
+gulp.task('default', [
+  'open',
+  'serve',
   'watch'
 ])
 
-gulp.start.apply(gulp, ['default'])
+gulp.start.apply(gulp, [process.argv[2] ? process.argv[2] : 'default'])
 
 function resolveSkin (package, cwd) {
   try {
