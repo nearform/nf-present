@@ -69,7 +69,12 @@ const processFiles = async () => {
 }
 
 ;(async () => {
-  await processFiles()
+  try {
+    await processFiles()
+  } catch (error) {
+    console.error(error)
+    process.exit(1)
+  }
 
   if (outOpt) {
     open(outFilename)
@@ -79,9 +84,25 @@ const processFiles = async () => {
       server.watch([...cssFiles, outFilename])
 
       console.log('Watching for changes...')
-      chokidar.watch(markdownPath).on('change', () => {
-        processFiles()
-      })
+      chokidar
+        .watch(markdownPath)
+        .on('change', () => {
+          processFiles().catch(error => {
+            console.error(error)
+            process.exit(1)
+          })
+        })
+        .on('unlink', path => {
+          console.error('Error: markdown file missing: ', path)
+          process.exit(1)
+        })
+        .on('error', error => {
+          console.error(error)
+          process.exit(1)
+        })
     }
   }
-})()
+})().catch(error => {
+  console.error(error)
+  process.exit(1)
+})
