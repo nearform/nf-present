@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { promises: fs } = require('fs')
+const path = require('path')
 const open = require('open')
 const yargs = require('yargs')
 const chokidar = require('chokidar')
@@ -11,10 +12,10 @@ const cssOpt = yargs.argv.css
 const outOpt = yargs.argv.out
 const shouldWatch = !!yargs.argv.watch || !!yargs.argv.w
 
-const markdownPath = `${cwd}/${markdownFilename}`
-const outFilename = `${cwd}/${outOpt}`
-const remarkSrc = `${__dirname}/assets/remark-latest.min.js`
-const nfStylesSrc = `${__dirname}/assets/styles.css`
+const markdownPath = path.resolve(cwd, markdownFilename)
+const outFilename = path.resolve(cwd, outOpt)
+const remarkSrc = path.resolve(__dirname, './assets/remark-latest.min.js')
+const nfStylesSrc = path.resolve(__dirname, './assets/styles.css')
 
 const generateHTML = ({ md, cssLinks, remarkSrc }) => `
 <!DOCTYPE html>
@@ -26,7 +27,11 @@ const generateHTML = ({ md, cssLinks, remarkSrc }) => `
       cssLinks && cssLinks.length
         ? cssLinks
             .map(
-              href => `<link rel="stylesheet" type="text/css" href="${href}">`
+              href =>
+                `<link rel="stylesheet" type="text/css" href="${path.resolve(
+                  cwd,
+                  href
+                )}">`
             )
             .join('')
         : ''
