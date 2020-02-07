@@ -4,10 +4,10 @@
   "description": "Bootstrap for remark decks",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./index.js ./test/deck.md --css=./test/deck.css --out=./test/index.html"
   },
   "bin": {
-    "nf-present": "./present.js"
+    "nf-present": "./index.js"
   },
   "author": "Fionn Kelleher <fionnkell@gmail.com>",
   "license": "UNLICENSED",
@@ -18,15 +18,9 @@
   "homepage": "https://github.com/nearform/remark-bootstrap",
   "bugs": "https://github.com/nearform/remark-bootstrap/issues",
   "dependencies": {
-    "@nearform/remark": "^0.14.1",
-    "browserify": "^14.4.0",
-    "create-html": "^3.1.0",
-    "from2-string": "^1.1.0",
-    "gulp": "^3.9.1",
-    "gulp-connect": "^5.0.0",
-    "opn": "^5.3.0",
-    "resolve": "^1.3.3",
-    "temp": "^0.8.3",
-    "vinyl-source-stream": "^1.1.0"
+    "chokidar": "3.3.1",
+    "open": "7.0.2",
+    "remark": "11.0.2",
+    "yargs": "15.1.0"
   }
 }
