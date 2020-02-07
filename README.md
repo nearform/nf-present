@@ -1,13 +1,25 @@
 # remark-bootstrap
 
-This module provides a command to serve nearForm training decks written using Remark.
+This module provides a command to serve NearForm training decks written using Remark.
 
 ## Installation
 
-    npm install -g @nearform/remark-bootstrap
+`npm install @nearform/remark-bootstrap`
 
 ## Usage
 
-See https://github.com/nearform/remark-boilerplate for a full example.
+### Basic
 
-Using `nf-present` will start a server where you can access the slide deck. Install a skin in your slide deck to change the look/feel (you probably want `@nearform/remark-skin`).
+`nf-present deck.md > index.html`
+
+### Options
+
+- `--css=./path/to/custom.css`
+- `--out=./path/to/index.html`
+- `--watch` Watch for changes and regenerate the html file, `--out` is required for this.
+
+**Complete Example**
+
+`nf-present deck.md --css=deck.css --out=index.html --watch`
+
+See https://github.com/nearform/remark-boilerplate for a full example.
