@@ -5,6 +5,7 @@ const path = require('path')
 const open = require('open')
 const yargs = require('yargs')
 const chokidar = require('chokidar')
+const livereload = require('livereload')
 
 const cwd = process.cwd()
 const [markdownFilename] = yargs.argv._
@@ -15,23 +16,29 @@ const shouldWatch = !!yargs.argv.watch || !!yargs.argv.w
 const markdownPath = path.resolve(cwd, markdownFilename)
 const outFilename = path.resolve(cwd, outOpt)
 const remarkSrc = path.resolve(__dirname, './assets/remark-latest.min.js')
-const nfStylesSrc = path.resolve(__dirname, './assets/styles.css')
+const cssFiles = [
+  path.resolve(__dirname, './assets/styles.css'),
+  path.resolve(cwd, cssOpt)
+]
 
-const generateHTML = ({ md, cssLinks, remarkSrc }) => `
+const liveReloadScript = `
+<script>
+document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+':35729/livereload.js?snipver=1"></' + 'script>')
+</script> 
+`
+
+const generateHTML = ({ md, cssFiles, remarkSrc }) => `
 <!DOCTYPE html>
 <html>
   <head>
     <title>NearForm Workshop</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     ${
-      cssLinks && cssLinks.length
-        ? cssLinks
+      cssFiles && cssFiles.length
+        ? cssFiles
             .map(
-              href =>
-                `<link rel="stylesheet" type="text/css" href="${path.resolve(
-                  cwd,
-                  href
-                )}">`
+              href => `<link rel="stylesheet" type="text/css" href="${href}">`
             )
             .join('')
         : ''
@@ -44,13 +51,14 @@ const generateHTML = ({ md, cssLinks, remarkSrc }) => `
     <script type="text/javascript">
       var slideshow = remark.create();
     </script>
+    ${shouldWatch ? liveReloadScript : ''}
   </body>
 </html>
 `
 
 const processFiles = async () => {
   const md = await fs.readFile(markdownPath, 'utf8')
-  const html = generateHTML({ md, cssLinks: [nfStylesSrc, cssOpt], remarkSrc })
+  const html = generateHTML({ md, cssFiles, remarkSrc })
 
   if (outOpt) {
     await fs.writeFile(outFilename, html, { encoding: 'utf8' })
@@ -67,6 +75,9 @@ const processFiles = async () => {
     open(outFilename)
 
     if (shouldWatch) {
+      const server = livereload.createServer()
+      server.watch([...cssFiles, outFilename])
+
       console.log('Watching for changes...')
       chokidar.watch(markdownPath).on('change', () => {
         processFiles()

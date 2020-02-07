@@ -4,7 +4,7 @@
   "description": "Bootstrap for remark decks",
   "main": "index.js",
   "scripts": {
-    "test": "./index.js ./test/deck.md --css=./test/deck.css --out=./test/index.html"
+    "test": "./index.js ./test/deck.md --css=./test/deck.css --out=./test/index.html --watch"
   },
   "bin": {
     "nf-present": "./index.js"
@@ -19,6 +19,7 @@
   "bugs": "https://github.com/nearform/remark-bootstrap/issues",
   "dependencies": {
     "chokidar": "3.3.1",
+    "livereload": "0.9.1",
     "open": "7.0.2",
     "remark": "11.0.2",
     "yargs": "15.1.0"
