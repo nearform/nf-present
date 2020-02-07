@@ -1,7 +1,7 @@
 {
-  "name": "@nearform/remark-bootstrap",
-  "version": "2.2.0",
-  "description": "Bootstrap for remark decks",
+  "name": "@nearform/nf-present",
+  "version": "1.0.0",
+  "description": "Bootstrap for remark presentations",
   "main": "index.js",
   "scripts": {
     "test": "./index.js ./test/deck.md --css=./test/deck.css --out=./test/index.html --watch"
@@ -18,13 +18,13 @@
       "author": true
     }
   ],
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nearform/remark-bootstrap.git"
+    "url": "https://github.com/nearform/nf-present.git"
   },
-  "homepage": "https://github.com/nearform/remark-bootstrap",
-  "bugs": "https://github.com/nearform/remark-bootstrap/issues",
+  "homepage": "https://github.com/nearform/nf-present",
+  "bugs": "https://github.com/nearform/nf-present/issues",
   "dependencies": {
     "chokidar": "3.3.1",
     "livereload": "0.9.1",

@@ -1,10 +1,10 @@
-# remark-bootstrap
+# nf-present
 
 This module provides a command to serve NearForm training decks written using Remark.
 
 ## Installation
 
-`npm install @nearform/remark-bootstrap`
+`npm install @nearform/nf-present`
 
 ## Usage
 
@@ -21,5 +21,3 @@ This module provides a command to serve NearForm training decks written using Re
 **Complete Example**
 
 `nf-present deck.md --css=deck.css --out=index.html --watch`
-
-See https://github.com/nearform/remark-boilerplate for a full example.
