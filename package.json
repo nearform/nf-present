@@ -10,6 +10,14 @@
     "nf-present": "./index.js"
   },
   "author": "Fionn Kelleher <fionnkell@gmail.com>",
+  "contributors": [
+    {
+      "name": "Brian Mullan",
+      "url": "https://twitter.com/bmullan91",
+      "email": "bmullan91@gmail.com",
+      "author": true
+    }
+  ],
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
