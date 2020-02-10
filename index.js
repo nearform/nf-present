@@ -11,15 +11,16 @@ const cwd = process.cwd()
 const [markdownFilename] = yargs.argv._
 const cssOpt = yargs.argv.css
 const outOpt = yargs.argv.out
+const outFilename = outOpt ? path.resolve(cwd, outOpt) : null
 const shouldWatch = !!yargs.argv.watch || !!yargs.argv.w
 
 const markdownPath = path.resolve(cwd, markdownFilename)
-const outFilename = path.resolve(cwd, outOpt)
 const remarkSrc = path.resolve(__dirname, './assets/remark-latest.min.js')
-const cssFiles = [
-  path.resolve(__dirname, './assets/styles.css'),
-  path.resolve(cwd, cssOpt)
-]
+const cssFiles = [path.resolve(__dirname, './assets/styles.css')]
+
+if (cssOpt) {
+  cssFiles.push(path.resolve(cwd, cssOpt))
+}
 
 const liveReloadScript = `
 <script>

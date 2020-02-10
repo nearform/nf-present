@@ -4,7 +4,11 @@
   "description": "Bootstrap for remark presentations",
   "main": "index.js",
   "scripts": {
-    "test": "./index.js ./test/deck.md --css=./test/deck.css --out=./test/index.html --watch"
+    "test": "npm run test:basic && npm run test:css && npm run test:out",
+    "test:basic": "./index.js ./test/deck.md",
+    "test:css": "./index.js ./test/deck.md --css=./test/deck.css",
+    "test:out": "./index.js ./test/deck.md --out=./test/index.html",
+    "test:watch": "./index.js ./test/deck.md --css=./test/deck.css --out=./test/index.html --watch"
   },
   "bin": {
     "nf-present": "./index.js"
