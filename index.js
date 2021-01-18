@@ -86,7 +86,11 @@ const processFiles = async () => {
 
       console.log('Watching for changes...')
       chokidar
-        .watch(markdownPath)
+        .watch(markdownPath, {
+          awaitWriteFinish: {
+            stabilityThreshold: 500
+          }
+        })
         .on('change', () => {
           processFiles().catch(error => {
             console.error(error)
