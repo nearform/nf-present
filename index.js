@@ -88,8 +88,7 @@ const processFiles = async () => {
       chokidar
         .watch(markdownPath, {
           awaitWriteFinish: {
-            stabilityThreshold: 2000,
-            pollInterval: 100
+            stabilityThreshold: 500
           }
         })
         .on('change', () => {
