@@ -1,0 +1,9 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v2.5.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
