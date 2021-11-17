@@ -8,7 +8,8 @@
     "test:basic": "./index.js ./test/deck.md",
     "test:css": "./index.js ./test/deck.md --css=./test/deck.css",
     "test:out": "./index.js ./test/deck.md --out=./test/index.html",
-    "test:watch": "./index.js ./test/deck.md --css=./test/deck.css --out=./test/index.html --watch"
+    "test:watch": "./index.js ./test/deck.md --css=./test/deck.css --out=./test/index.html --watch",
+    "postinstall": "node scripts/download-remark.js"
   },
   "bin": {
     "nf-present": "./index.js"
@@ -20,7 +21,8 @@
       "url": "https://twitter.com/bmullan91",
       "email": "bmullan91@gmail.com",
       "author": true
-    }
+    },
+    "Simone Busoli <simone.busoli@nearform.com>"
   ],
   "license": "Apache-2.0",
   "repository": {
@@ -33,7 +35,6 @@
     "chokidar": "3.5.2",
     "livereload": "0.9.3",
     "open": "8.4.0",
-    "remark": "14.0.1",
     "yargs": "17.2.1"
   }
 }
