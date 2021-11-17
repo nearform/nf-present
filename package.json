@@ -31,7 +31,7 @@
   "bugs": "https://github.com/nearform/nf-present/issues",
   "dependencies": {
     "chokidar": "3.5.2",
-    "livereload": "0.9.1",
+    "livereload": "0.9.3",
     "open": "8.4.0",
     "remark": "11.0.2",
     "yargs": "17.2.1"
