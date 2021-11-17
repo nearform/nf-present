@@ -33,7 +33,7 @@
     "chokidar": "3.5.2",
     "livereload": "0.9.3",
     "open": "8.4.0",
-    "remark": "11.0.2",
+    "remark": "14.0.1",
     "yargs": "17.2.1"
   }
 }
