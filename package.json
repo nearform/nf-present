@@ -32,7 +32,7 @@
   "homepage": "https://github.com/nearform/nf-present",
   "bugs": "https://github.com/nearform/nf-present/issues",
   "dependencies": {
-    "chokidar": "3.5.2",
+    "chokidar": "3.5.3",
     "livereload": "0.9.3",
     "open": "8.4.0",
     "yargs": "17.3.1"
